@@ -1,39 +1,84 @@
-# Academy Timetable Management System (PWA)
+﻿# 📅 Time Table Management System
 
-A Progressive Web App for generating clash-free weekly timetables for an academy.
+A comprehensive full-stack application designed to automate and manage school/college timetables. It features a smart scheduling algorithm, manual lecture pinning, drag-and-drop adjustments, and clash detection to ensure conflict-free schedules for teachers and students.
 
-## Tech Stack
-- Frontend: React (Vite), Tailwind CSS, @dnd-kit/core
-- Backend: Python, Flask, MySQL
+**🌐 Live Demo:** [https://bhp2604.vercel.app](https://bhp2604.vercel.app)
 
-## Setup Instructions
+---
+
+## ✨ Features
+
+- **🧠 Smart Auto-Generation:** Uses a backtracking algorithm to automatically generate clash-free timetables for all sections.
+- **📌 Pin Lectures:** Manually assign specific subjects and teachers to fixed time slots before running the auto-generator.
+- **🖱️ Interactive Drag & Drop:** Easily swap lectures or move them to empty slots using an intuitive drag-and-drop interface.
+- **🚫 Real-Time Clash Detection:** Prevents assigning a teacher to multiple classes at the exact same time.
+- **👨‍🏫 Proxy Assignment:** Quickly assign proxy teachers to specific slots for absent staff.
+- **⚙️ Full CRUD Management:** Manage Classes, Sections, Subjects, and Teachers with a clean user interface.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React.js, Vite, Tailwind CSS, Lucide React (Deployed on Vercel)
+- **Backend:** Python, Flask, Flask-CORS (Deployed on Render)
+- **Database:** MySQL (Hosted on Railway)
+
+---
+
+## 🚀 Local Setup Instructions
+
+### Prerequisites
+- Node.js & npm installed
+- Python 3.12+ installed
+- MySQL Server installed and running
 
 ### 1. Database Setup
-1. Ensure MySQL Server is running locally.
-2. The default credentials expected in `backend/.env` are:
-   - Host: localhost
-   - User: root
-   - Password: root
-   - DB Name: timetable_app_db
-   (Modify `backend/.env` if your MySQL credentials differ).
+1. Open MySQL and ensure your server is running.
+2. Navigate to the ackend folder and create a .env file with your database credentials:
+   `env
+   DB_HOST=localhost
+   DB_USER=root
+   DB_PASSWORD=your_password
+   DB_NAME=timetable_app_db
+   DB_PORT=3306
+   `
+3. Run the database initialization script to create the schema and tables automatically:
+   `ash
+   cd backend
+   python init_db.py
+   `
 
 ### 2. Backend Setup
-Open a terminal and run:
-```bash
+Open a terminal and run the following commands:
+`ash
 cd backend
+
+# Create and activate virtual environment
 python -m venv venv
-.\venv\Scripts\activate   # On Windows
+.\venv\Scripts\activate   # On Mac/Linux use: source venv/bin/activate
+
+# Install dependencies
 pip install -r requirements.txt
-python init_db.py         # Creates database and tables
-python app.py             # Starts the Flask API on http://127.0.0.1:5000
-```
+
+# Run the Flask server
+python app.py
+`
+*The backend API will run on http://127.0.0.1:5000*
 
 ### 3. Frontend Setup
-Open a separate terminal and run:
-```bash
+Open a new terminal and run:
+`ash
 cd frontend
-npm install
-npm run dev
-```
 
-The app will be available at http://localhost:5173.
+# Install Node modules
+npm install
+
+# Start the Vite development server
+npm run dev
+`
+*The frontend will run on http://localhost:5173*
+
+---
+
+## 📝 License
+This project is open-source and available under the MIT License.
