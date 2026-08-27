@@ -8,6 +8,7 @@ DB_CONFIG_NO_DB = {
     "host": os.getenv("DB_HOST", "localhost"),
     "user": os.getenv("DB_USER", "root"),
     "password": os.getenv("DB_PASSWORD", ""),
+    "port": int(os.getenv("DB_PORT", 3306)),
 }
 
 DB_CONFIG = {
@@ -20,3 +21,4 @@ def get_db_connection():
 
 def get_db_connection_no_db():
     return mysql.connector.connect(**DB_CONFIG_NO_DB)
+
